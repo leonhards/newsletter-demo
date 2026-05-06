@@ -10,24 +10,8 @@ An AI-powered newsletter pipeline built on the **WAT framework** (Workflows, Age
 
 <img src="brand_assets/pipeline.svg" alt="Newsletter pipeline animation" width="100%"/>
 
-### Pipeline (Flowchart)
-
-```mermaid
-flowchart LR
-    A([Topic]) --> B[Research\nTavily]
-    B --> C[Content\nClaude]
-    C --> D[Images\nkie.ai]
-    D --> E[Upload\nGoogle Drive]
-    E --> F[Render\nHTML]
-    F --> G([Send\nGmail])
-
-    style A fill:#3F3DA8,color:#fff,stroke:#8786F4
-    style B fill:#3F3DA8,color:#fff,stroke:#8786F4
-    style C fill:#3F3DA8,color:#fff,stroke:#8786F4
-    style D fill:#3F3DA8,color:#fff,stroke:#8786F4
-    style E fill:#3F3DA8,color:#fff,stroke:#8786F4
-    style F fill:#3F3DA8,color:#fff,stroke:#8786F4
-    style G fill:#0891B2,color:#fff,stroke:#22D3EE
+```
+Topic → Research (Tavily) → Content (Claude) → Infographics (kie.ai) → Upload (Google Drive) → Render (HTML) → Send (Gmail)
 ```
 
 The architecture separates concerns:
