@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="color-scheme" content="light dark" />
+  <title>{{ newsletter.headline }}</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto+Mono:wght@400;500&display=swap');
+    body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+    table,td{mso-table-lspace:0pt;mso-table-rspace:0pt;}
+    img{border:0;height:auto;line-height:100%;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;}
+    body{margin:0;padding:0;}
+  </style>
+</head>
+<body style="margin:0;padding:0;background-color:{{ style.colors.dark_bg }};">
+
+  <!-- Preheader -->
+  <div style="display:none;font-size:1px;color:{{ style.colors.dark_bg }};line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">
+    {{ newsletter.preheader }}&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  </div>
+
+  <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:{{ style.colors.dark_bg }};">
+    <tr>
+      <td align="center" style="padding:32px 16px;">
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600"
+               style="max-width:600px;width:100%;background-color:{{ style.colors.surface }};border-radius:12px;overflow:hidden;border:1px solid {{ style.colors.border }};">
+
+          <!-- HEADER -->
+          <tr>
+            <td style="background-color:{{ style.colors.dark_bg }};padding:24px 36px;">
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td valign="middle" width="40">
+                    {% if logo_data_uri %}
+                    <img src="{{ logo_data_uri }}" alt="{{ style.brand_name }}" width="40" height="40"
+                         style="display:block;width:40px;height:40px;border-radius:50%;" />
+                    {% endif %}
+                  </td>
+                  <td valign="middle" style="padding-left:10px;">
+                    <span style="font-family:{{ style.fonts.heading }};font-size:18px;font-weight:800;color:{{ style.colors.text_primary }};letter-spacing:1.5px;">
+                      {{ style.brand_name }}
+                    </span>
+                  </td>
+                  <td valign="middle" align="right">
+                    <span style="font-family:{{ style.fonts.mono }};font-size:10px;color:{{ style.gradient.fallback }};letter-spacing:2px;text-transform:uppercase;">
+                      {{ style.newsletter_label }}
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Gradient divider -->
+          <tr>
+            <td style="background:{{ style.gradient.fallback }};background:linear-gradient(90deg,{{ style.gradient.from }},{{ style.gradient.to }});height:3px;font-size:0;line-height:0;">&nbsp;</td>
+          </tr>
+
+          <!-- HERO -->
+          <tr>
+            <td style="background-color:{{ style.colors.dark_bg }};padding:44px 36px 36px;text-align:center;">
+              <h1 style="margin:0 0 14px;font-family:{{ style.fonts.heading }};font-size:28px;font-weight:800;line-height:1.25;color:{{ style.colors.text_primary }};letter-spacing:-0.5px;">
+                {{ newsletter.headline }}
+              </h1>
+              {% if newsletter.subheadline %}
+              <p style="margin:0;font-family:{{ style.fonts.heading }};font-size:15px;font-weight:400;color:{{ style.colors.text_muted }};line-height:1.6;">
+                {{ newsletter.subheadline }}
+              </p>
+              {% endif %}
+            </td>
+          </tr>
+
+          <!-- INTRODUCTION -->
+          <tr>
+            <td style="background-color:{{ style.colors.surface }};padding:28px 36px;">
+              <p style="margin:0;font-family:{{ style.fonts.heading }};font-size:14px;line-height:1.8;color:{{ style.colors.text_muted }};">
+                {{ newsletter.introduction }}
+              </p>
+            </td>
+          </tr>
+
+          <!-- SECTIONS -->
+          {% for section in newsletter.sections %}
+
+          <tr>
+            <td style="padding:0 36px;">
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr><td style="border-top:1px solid {{ style.colors.border }};font-size:0;line-height:0;">&nbsp;</td></tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:32px 36px 0;">
+
+              <!-- Section label -->
+              <p style="margin:0 0 6px;font-family:{{ style.fonts.mono }};font-size:10px;font-weight:500;color:{{ style.colors.accent_teal }};letter-spacing:2px;text-transform:uppercase;">
+                0{{ loop.index }} &mdash; Analysis
+              </p>
+
+              <!-- Section title -->
+              <h2 style="margin:0 0 14px;font-family:{{ style.fonts.heading }};font-size:19px;font-weight:700;color:{{ style.colors.text_primary }};line-height:1.35;">
+                {{ section.title }}
+              </h2>
+
+              <!-- Body -->
+              <p style="margin:0 0 22px;font-family:{{ style.fonts.heading }};font-size:14px;line-height:1.8;color:{{ style.colors.text_muted }};">
+                {{ section.body }}
+              </p>
+
+              <!-- Infographic -->
+              {% if section.chart_url %}
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%"
+                     style="margin-bottom:18px;border-radius:8px;overflow:hidden;border:1px solid {{ style.colors.border }};">
+                <tr>
+                  <td>
+                    <img src="{{ section.chart_url }}"
+                         alt="{{ section.title }} — {{ section.key_stat.value }} {{ section.key_stat.label }}"
+                         width="528" style="display:block;width:100%;height:auto;" />
+                  </td>
+                </tr>
+              </table>
+              {% endif %}
+
+              <!-- Key stat callout -->
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%"
+                     style="background-color:{{ style.colors.dark_bg }};border-radius:8px;border:1px solid {{ style.gradient.fallback }};margin-bottom:8px;">
+                <tr>
+                  <td style="padding:18px 22px;">
+                    <p style="margin:0 0 4px;font-family:{{ style.fonts.heading }};font-size:34px;font-weight:800;color:{{ style.gradient.fallback }};line-height:1;">
+                      {{ section.key_stat.value }}
+                    </p>
+                    <p style="margin:0 0 6px;font-family:{{ style.fonts.heading }};font-size:13px;font-weight:600;color:{{ style.colors.text_primary }};line-height:1.4;">
+                      {{ section.key_stat.label }}
+                    </p>
+                    <p style="margin:0;font-family:{{ style.fonts.mono }};font-size:11px;color:{{ style.colors.text_subtle }};">
+                      Source: {{ section.key_stat.source }}
+                      {% if section.key_stat.unverified %}
+                      &nbsp;<span style="color:{{ style.colors.accent_orange }};font-weight:600;">⚠ Unverified — review before send</span>
+                      {% endif %}
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+          <tr><td style="height:12px;font-size:0;line-height:0;">&nbsp;</td></tr>
+
+          {% endfor %}
+
+          <!-- KEY TAKEAWAYS -->
+          <tr>
+            <td style="padding:0 36px;">
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%"
+                     style="background:{{ style.gradient.fallback }};background:linear-gradient(135deg,{{ style.gradient.from }},{{ style.gradient.to }});border-radius:10px;">
+                <tr>
+                  <td style="padding:26px 30px;">
+                    <p style="margin:0 0 18px;font-family:{{ style.fonts.mono }};font-size:10px;font-weight:500;color:rgba(255,255,255,0.55);letter-spacing:2px;text-transform:uppercase;">
+                      Key Takeaways
+                    </p>
+                    {% for item in newsletter.key_takeaways %}
+                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%"
+                           style="margin-bottom:{% if not loop.last %}12px{% else %}0{% endif %};">
+                      <tr>
+                        <td width="16" valign="top" style="padding-top:4px;">
+                          <div style="width:5px;height:5px;background-color:#fff;border-radius:50%;"></div>
+                        </td>
+                        <td style="font-family:{{ style.fonts.heading }};font-size:13px;font-weight:500;line-height:1.65;color:#ffffff;padding-left:8px;">
+                          {{ item }}
+                        </td>
+                      </tr>
+                    </table>
+                    {% endfor %}
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- CTA -->
+          {% if newsletter.call_to_action %}
+          <tr>
+            <td style="padding:32px 36px 0;text-align:center;">
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+                <tr>
+                  <td style="border-radius:8px;background:{{ style.gradient.fallback }};background:linear-gradient(135deg,{{ style.gradient.from }},{{ style.gradient.to }});">
+                    <a href="{{ newsletter.call_to_action.url }}"
+                       style="display:inline-block;padding:14px 34px;font-family:{{ style.fonts.heading }};font-size:14px;font-weight:700;color:#ffffff;text-decoration:none;letter-spacing:0.5px;border-radius:8px;">
+                      {{ newsletter.call_to_action.text }}
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          {% endif %}
+
+          <!-- SOURCES -->
+          {% if newsletter.sources %}
+          <tr>
+            <td style="padding:32px 36px 0;">
+              <p style="margin:0 0 8px;font-family:{{ style.fonts.mono }};font-size:10px;color:{{ style.colors.text_subtle }};letter-spacing:1.5px;text-transform:uppercase;">
+                Sources
+              </p>
+              {% for source in newsletter.sources %}
+              <p style="margin:0 0 4px;font-family:{{ style.fonts.mono }};font-size:11px;">
+                <a href="{{ source.url }}" style="color:{{ style.gradient.fallback }};text-decoration:none;">{{ source.title }}</a>
+              </p>
+              {% endfor %}
+            </td>
+          </tr>
+          {% endif %}
+
+          <!-- FOOTER -->
+          <tr>
+            <td style="background-color:{{ style.colors.dark_bg }};padding:28px 36px 32px;margin-top:32px;">
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td style="border-top:1px solid {{ style.colors.border }};padding-top:24px;text-align:center;">
+
+                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="margin:0 auto 14px;">
+                      <tr>
+                        <td valign="middle">
+                          {% if logo_data_uri %}
+                          <img src="{{ logo_data_uri }}" alt="{{ style.brand_name }}" width="22" height="22"
+                               style="display:inline-block;width:22px;height:22px;border-radius:50%;vertical-align:middle;" />
+                          {% endif %}
+                        </td>
+                        <td valign="middle" style="padding-left:7px;">
+                          <span style="font-family:{{ style.fonts.heading }};font-size:12px;font-weight:700;color:{{ style.colors.text_muted }};letter-spacing:1.5px;">
+                            {{ style.brand_name }}
+                          </span>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <p style="margin:0 0 8px;font-family:{{ style.fonts.heading }};font-size:11px;color:{{ style.colors.text_subtle }};line-height:1.6;">
+                      You're receiving this because you subscribed to {{ style.brand_name }} {{ style.newsletter_label }}s.
+                    </p>
+                    <p style="margin:0 0 10px;font-family:{{ style.fonts.heading }};font-size:11px;line-height:1.6;">
+                      <a href="{{ style.footer.unsubscribe_url }}" style="color:{{ style.gradient.fallback }};text-decoration:none;">Unsubscribe</a>
+                      &nbsp;&bull;&nbsp;
+                      <a href="{{ style.footer.browser_url }}" style="color:{{ style.gradient.fallback }};text-decoration:none;">View in browser</a>
+                    </p>
+                    <p style="margin:0;font-family:{{ style.fonts.mono }};font-size:10px;color:{{ style.colors.border }};line-height:1.5;">
+                      {{ style.footer.company }} &bull; {{ style.footer.address }}
+                    </p>
+
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

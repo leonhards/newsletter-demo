@@ -58,6 +58,7 @@ This loop is how the framework improves over time.
 **Directory layout:**
 ```
 .tmp/           # Temporary files (scraped data, intermediate exports). Regenerated as needed.
+config/         # Project configuration files (brand style, recipients, settings). NOT secrets.
 tools/          # Python scripts for deterministic execution
 workflows/      # Markdown SOPs defining what to do and how
 .env            # API keys and environment variables (NEVER store secrets anywhere else)
@@ -65,6 +66,8 @@ credentials.json, token.json  # Google OAuth (gitignored)
 ```
 
 **Core principle:** Local files are just for processing. Anything I need to see or use lives in cloud services. Everything in `.tmp/` is disposable.
+
+**Config over memory:** Any value the user may need to change over time — brand colors, recipient lists, folder IDs, feature settings — belongs in a `config/` JSON file, not hardcoded in scripts or stored in AI memory. Deterministic, file-based configs are what the scripts own. AI memory is only for context Claude needs across sessions. Create config files proactively at the start of any new pipeline, before being asked.
 
 ## Bottom Line
 

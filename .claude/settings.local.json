@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"d:\\\\Leon\\\\Projects\\\\Newsletter Demo\" -Force)",
+      "Bash(Select-Object Name, FullName)",
+      "Bash(git -C \"d:\\\\Leon\\\\Projects\\\\Newsletter Demo\" log --oneline -10)",
+      "Bash(git -C \"d:/Leon/Projects/Newsletter Demo\" log --oneline --all)",
+      "WebSearch",
+      "WebFetch(domain:docs.kie.ai)",
+      "Bash(dir \"d:\\\\Leon\\\\Projects\\\\Newsletter Demo\\\\config\")",
+      "Bash(del \"C:\\\\Users\\\\Admin\\\\.claude\\\\projects\\\\d--Leon-Projects-Newsletter-Demo\\\\memory\\\\feedback_config_first.md\")",
+      "Skill(update-config)",
+      "Skill(update-config:*)"
+    ]
+  }
+}

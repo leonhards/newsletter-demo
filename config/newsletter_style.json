@@ -1,0 +1,38 @@
+{
+  "brand_name": "HIRALIS",
+  "newsletter_label": "Intelligence Brief",
+  "logo_path": "brand_assets/logo.png",
+
+  "colors": {
+    "dark_bg":       "#0D1020",
+    "surface":       "#1A1F35",
+    "text_primary":  "#FFFFFF",
+    "text_muted":    "#8892A4",
+    "text_subtle":   "#4A5568",
+    "border":        "#1E2535",
+    "accent_teal":   "#22D3EE",
+    "accent_orange": "#F97316",
+    "accent_purple": "#A78BFA",
+    "accent_pink":   "#EC4899"
+  },
+
+  "gradient": {
+    "from":     "#3F3DA8",
+    "to":       "#8786F4",
+    "fallback": "#5B50F0"
+  },
+
+  "fonts": {
+    "heading": "'Montserrat', Arial, sans-serif",
+    "mono":    "'Roboto Mono', monospace, Arial, sans-serif"
+  },
+
+  "footer": {
+    "company":         "Hiralis",
+    "address":         "Your Address Here, City, State 00000",
+    "unsubscribe_url": "#",
+    "browser_url":     "#"
+  },
+
+  "infographic_style": "dark navy background (#0D1020), primary gradient from #3F3DA8 to #8786F4, white text, teal accent (#22D3EE) for highlights, clean geometric shapes, Montserrat sans-serif typography, minimal and modern"
+}
