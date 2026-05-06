@@ -1,0 +1,106 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="nnk03LOFEICxMmuS05EI" name="Page-1">
+    <mxGraphModel dx="1144" dy="624" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1654" pageHeight="1169" background="#1A1A1A" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="lane1" parent="1" style="swimlane;startSize=40;horizontal=0;fillColor=#F2CC8F;strokeColor=#E07A5F;fontColor=#393C56;fontSize=11;fontStyle=1;swimlaneLine=1;align=center;labelBackgroundColor=none;" value="USER" vertex="1">
+          <mxGeometry height="155" width="1120" as="geometry">
+            <mxRectangle height="60" width="31" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n-start" parent="lane1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F2CC8F;strokeColor=#E07A5F;strokeWidth=2.5;labelBackgroundColor=none;fontColor=#393C56;" value="" vertex="1">
+          <mxGeometry height="44" width="44" x="74" y="51" as="geometry" />
+        </mxCell>
+        <mxCell id="t-start" parent="lane1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#393C56;fontSize=10;labelBackgroundColor=none;" value="Need topic" vertex="1">
+          <mxGeometry height="16" width="84" x="54" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="t-end" parent="lane1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#393C56;fontSize=10;labelBackgroundColor=none;" value="Email received" vertex="1">
+          <mxGeometry height="16" width="84" x="977" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="lane2" parent="1" style="swimlane;startSize=40;horizontal=0;fillColor=#F2CC8F;strokeColor=#E07A5F;fontColor=#393C56;fontSize=11;fontStyle=1;swimlaneLine=1;align=center;labelBackgroundColor=none;" value="CLAUDE AGENT" vertex="1">
+          <mxGeometry height="165" width="1120" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="n-compose" parent="lane2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2CC8F;strokeColor=#E07A5F;fontColor=#393C56;fontSize=12;fontStyle=1;labelBackgroundColor=none;" value="Compose Queries" vertex="1">
+          <mxGeometry height="48" width="130" x="153" y="54" as="geometry" />
+        </mxCell>
+        <mxCell id="t-compose-sub" parent="lane2" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#393C56;fontSize=10;labelBackgroundColor=none;" value="Claude Code" vertex="1">
+          <mxGeometry height="16" width="130" x="153" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="n-tavily" parent="lane2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2CC8F;strokeColor=#E07A5F;fontColor=#393C56;fontSize=12;fontStyle=1;labelBackgroundColor=none;" value="Tavily Search" vertex="1">
+          <mxGeometry height="48" width="130" x="153" y="222" as="geometry" />
+        </mxCell>
+        <mxCell id="arr2" edge="1" parent="lane2" source="n-compose" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E07A5F;strokeWidth=2;dashed=1;flowAnimation=1;endArrow=block;endFill=1;opacity=80;labelBackgroundColor=none;fontColor=default;" target="n-tavily" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lane3" parent="1" style="swimlane;startSize=40;horizontal=0;fillColor=#F2CC8F;strokeColor=#E07A5F;fontColor=#393C56;fontSize=11;fontStyle=1;swimlaneLine=1;align=center;labelBackgroundColor=none;" value="TOOLS &amp; APIs" vertex="1">
+          <mxGeometry height="170" width="1120" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="t-drive-sub" parent="lane3" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#393C56;fontSize=10;labelBackgroundColor=none;" value="Google Drive" vertex="1">
+          <mxGeometry height="16" width="130" x="552" y="109" as="geometry" />
+        </mxCell>
+        <mxCell id="t-render-sub" parent="lane3" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#393C56;fontSize=10;labelBackgroundColor=none;" value="Jinja2 + premailer" vertex="1">
+          <mxGeometry height="16" width="130" x="754" y="109" as="geometry" />
+        </mxCell>
+        <mxCell id="n-drive" parent="lane3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2CC8F;strokeColor=#E07A5F;fontColor=#393C56;fontSize=12;fontStyle=1;labelBackgroundColor=none;" value="Drive Upload" vertex="1">
+          <mxGeometry height="48" width="130" x="552" y="57" as="geometry" />
+        </mxCell>
+        <mxCell id="n-render" parent="lane3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2CC8F;strokeColor=#E07A5F;fontColor=#393C56;fontSize=12;fontStyle=1;labelBackgroundColor=none;" value="Render HTML" vertex="1">
+          <mxGeometry height="48" width="130" x="754" y="57" as="geometry" />
+        </mxCell>
+        <mxCell id="arr6" edge="1" parent="lane3" source="n-drive" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E07A5F;strokeWidth=2;dashed=1;flowAnimation=1;endArrow=block;endFill=1;opacity=80;labelBackgroundColor=none;fontColor=default;" target="n-render" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n-generate" parent="lane3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2CC8F;strokeColor=#E07A5F;fontColor=#393C56;fontSize=12;fontStyle=1;labelBackgroundColor=none;" value="Generate Content" vertex="1">
+          <mxGeometry height="48" width="130" x="349" y="-111" as="geometry" />
+        </mxCell>
+        <mxCell id="t-generate-sub" parent="lane3" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#393C56;fontSize=10;labelBackgroundColor=none;" value="Claude Code" vertex="1">
+          <mxGeometry height="16" width="130" x="349" y="-59" as="geometry" />
+        </mxCell>
+        <mxCell id="n-kieai" parent="lane3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2CC8F;strokeColor=#E07A5F;fontColor=#393C56;fontSize=12;fontStyle=1;labelBackgroundColor=none;" value="kie.ai Images" vertex="1">
+          <mxGeometry height="48" width="130" x="349" y="57" as="geometry" />
+        </mxCell>
+        <mxCell id="t-kieai-sub" parent="lane3" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#393C56;fontSize=10;labelBackgroundColor=none;" value="kie.ai API" vertex="1">
+          <mxGeometry height="16" width="130" x="349" y="109" as="geometry" />
+        </mxCell>
+        <mxCell id="arr4" edge="1" parent="lane3" source="n-generate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E07A5F;strokeWidth=2;dashed=1;flowAnimation=1;endArrow=block;endFill=1;opacity=80;labelBackgroundColor=none;fontColor=default;" target="n-kieai" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr5" edge="1" parent="lane3" source="n-kieai" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E07A5F;strokeWidth=2;dashed=1;flowAnimation=1;endArrow=block;endFill=1;opacity=80;labelBackgroundColor=none;fontColor=default;" target="n-drive" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n-end" parent="lane3" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F2CC8F;strokeColor=#E07A5F;strokeWidth=3.5;labelBackgroundColor=none;fontColor=#393C56;" value="" vertex="1">
+          <mxGeometry height="44" width="44" x="995" y="-269" as="geometry" />
+        </mxCell>
+        <mxCell id="n-gmail" parent="lane3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2CC8F;strokeColor=#E07A5F;fontColor=#393C56;fontSize=12;fontStyle=1;labelBackgroundColor=none;" value="Gmail Send" vertex="1">
+          <mxGeometry height="48" width="130" x="952" y="57" as="geometry" />
+        </mxCell>
+        <mxCell id="t-gmail-sub" parent="lane3" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#393C56;fontSize=10;labelBackgroundColor=none;" value="Gmail API" vertex="1">
+          <mxGeometry height="16" width="130" x="952" y="109" as="geometry" />
+        </mxCell>
+        <mxCell id="arr8" edge="1" parent="lane3" source="n-gmail" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E07A5F;strokeWidth=2;dashed=1;flowAnimation=1;endArrow=block;endFill=1;fontColor=default;fontSize=10;labelBackgroundColor=none;" target="n-end" value="Newsletter">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr7" edge="1" parent="lane3" source="n-render" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E07A5F;strokeWidth=2;dashed=1;flowAnimation=1;endArrow=block;endFill=1;opacity=80;labelBackgroundColor=none;fontColor=default;" target="n-gmail" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t-tavily-sub" parent="lane3" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#393C56;fontSize=10;labelBackgroundColor=none;" value="Tavily API" vertex="1">
+          <mxGeometry height="16" width="130" x="149" y="109" as="geometry" />
+        </mxCell>
+        <mxCell id="arr1" edge="1" parent="1" source="n-start" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E07A5F;strokeWidth=2;dashed=1;flowAnimation=1;endArrow=block;endFill=1;fontColor=default;fontSize=10;labelBackgroundColor=none;" target="n-compose" value="Find Topic">
+          <mxGeometry relative="1" x="0.5385" y="-11" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="96" y="233" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arr3" edge="1" parent="1" source="n-tavily" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E07A5F;strokeWidth=2;dashed=1;flowAnimation=1;endArrow=block;endFill=1;opacity=80;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=default;fontSize=10;labelBackgroundColor=none;" target="n-generate" value="Research results">
+          <mxGeometry relative="1" x="0.094" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
