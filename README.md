@@ -2,8 +2,6 @@
 
 An AI-powered newsletter pipeline built on the **WAT framework** (Workflows, Agents, Tools). Give it a topic and it researches, writes, designs, and sends a branded HTML email — end to end.
 
-![Hiralis Intelligence Brief](brand_assets/logo.png)
-
 ---
 
 ## How It Works
@@ -13,6 +11,7 @@ Topic → Research (Tavily) → Content (Claude) → Infographics (kie.ai) → U
 ```
 
 The architecture separates concerns:
+
 - **Workflows** (`workflows/`) — plain-language SOPs that define what to do and how
 - **Agents** — Claude reads the workflow and orchestrates each step
 - **Tools** (`tools/`) — Python scripts that do the actual execution (API calls, file ops, rendering)
@@ -22,6 +21,7 @@ The architecture separates concerns:
 ## Output
 
 A fully rendered, email-safe HTML newsletter with:
+
 - Branded header (Hiralis Intelligence Brief)
 - 3–5 research-grounded sections with key stats
 - AI-generated infographic images per section
@@ -135,13 +135,24 @@ brand_assets/
 
 ## Cost Per Newsletter
 
-| Service | Cost |
-|---------|------|
-| Tavily search | ~free (1,000/month free tier) |
-| Claude content | free (Claude Code Pro plan) |
-| kie.ai infographics | ~$0.08 (4 images × $0.02) |
-| Google APIs | free |
-| **Total** | **~$0.08** |
+| Service             | Cost                          |
+| ------------------- | ----------------------------- |
+| Tavily search       | ~free (1,000/month free tier) |
+| Claude content      | free (Claude Code Pro plan)   |
+| kie.ai infographics | ~$0.08 (4 images × $0.02)     |
+| Google APIs         | free                          |
+| **Total**           | **~$0.08**                    |
+
+---
+
+## Next Steps
+
+Once you trust your workflow, explore deploying it as a scheduled job so newsletters go out automatically without any manual steps:
+
+- **[Trigger.dev](https://trigger.dev)** — run the pipeline as a background job triggered on a cron schedule, with built-in retries and observability
+- **[Modal](https://modal.com)** — deploy the pipeline as a serverless function that spins up on demand or on a schedule, with zero infrastructure management
+
+Both platforms work well with Python-based pipelines like this one. The pattern is: push your code to GitHub → connect the repo → define a schedule → done.
 
 ---
 
