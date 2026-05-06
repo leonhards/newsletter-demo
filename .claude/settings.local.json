@@ -10,7 +10,18 @@
       "Bash(dir \"d:\\\\Leon\\\\Projects\\\\Newsletter Demo\\\\config\")",
       "Bash(del \"C:\\\\Users\\\\Admin\\\\.claude\\\\projects\\\\d--Leon-Projects-Newsletter-Demo\\\\memory\\\\feedback_config_first.md\")",
       "Skill(update-config)",
-      "Skill(update-config:*)"
+      "Skill(update-config:*)",
+      "Bash(git commit -m ' *)",
+      "Bash(gh repo *)",
+      "Bash(git filter-branch --env-filter ' *)",
+      "Bash(git stash *)",
+      "Bash(xargs -I {} git update-ref -d {})",
+      "Bash(git reflog *)",
+      "Bash(git gc *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git reset *)",
+      "Bash(git checkout *)"
     ]
   }
 }
