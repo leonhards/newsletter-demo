@@ -31,6 +31,18 @@ A fully rendered, email-safe HTML newsletter with:
 
 ---
 
+## Prerequisites & Setup
+
+You'll need:
+
+1. A paid Claude/Anthropic subscription (Pro/Max/Teams) for Claude Code access
+2. Visual Studio Code installed — download free at [code.visualstudio.com](https://code.visualstudio.com)
+3. The Claude Code extension installed in VS Code (search "Claude Code" in Extensions)
+
+Once installed, click the Claude Code button in the top right to open the agent panel. That's your workspace: files on the left, agent on the right.
+
+---
+
 ## Setup
 
 ### 1. Install dependencies
