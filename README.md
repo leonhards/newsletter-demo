@@ -8,7 +8,7 @@ An AI-powered newsletter pipeline built on the **WAT framework** (Workflows, Age
 
 ### Pipeline (Animated)
 
-<img src="brand_assets/pipeline.svg" alt="Newsletter pipeline animation" width="100%"/>
+<img src="brand_assets/newsletter-demo.svg" alt="Newsletter pipeline animation" width="100%"/>
 
 ```
 Topic → Research (Tavily) → Content (Claude) → Infographics (kie.ai) → Upload (Google Drive) → Render (HTML) → Send (Gmail)
